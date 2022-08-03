@@ -14,11 +14,21 @@ void AMovingPlatform::BeginPlay()
 {
 	Super::BeginPlay();
 
-	MyFloatX = MyVector.X;
+	CurrentPosition = FVector(-13500, -2500, 4020);
+
+	Velocity = 3;
+
+	SetActorLocation(CurrentPosition);
 }
 
 // Called every frame
 void AMovingPlatform::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+
+	FVector LocalVector = FVector(1, 2, 3);
+
+	CurrentPosition.X += Velocity;
+
+	SetActorLocation(CurrentPosition);
 }
